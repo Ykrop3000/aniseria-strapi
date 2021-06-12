@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comments",
+  "info": {
+    "name": "comment",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "body": {
+      "type": "richtext",
+      "required": true,
+      "maxLength": 500
+    },
+    "author": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "anime": {
+      "via": "comments",
+      "model": "animes"
+    },
+    "rates": {
+      "via": "comment",
+      "collection": "rate"
+    }
+  }
+}

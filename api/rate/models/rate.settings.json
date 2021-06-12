@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rates",
+  "info": {
+    "name": "rate",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "value": {
+      "type": "decimal",
+      "required": true,
+      "max": 10,
+      "min": 0
+    },
+    "author": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "comment": {
+      "model": "comment",
+      "via": "rates"
+    },
+    "anime": {
+      "model": "animes",
+      "via": "rates"
+    }
+  }
+}

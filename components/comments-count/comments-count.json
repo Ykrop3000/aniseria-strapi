@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_comments_count_comments_counts",
+  "info": {
+    "name": "comments_count",
+    "icon": "comments"
+  },
+  "options": {},
+  "attributes": {
+    "count": {
+      "type": "integer"
+    }
+  }
+}

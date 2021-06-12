@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_comments_count_counts",
+  "info": {
+    "name": "count",
+    "icon": "align-center"
+  },
+  "options": {},
+  "attributes": {
+    "test": {
+      "type": "string"
+    }
+  }
+}

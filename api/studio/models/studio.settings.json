@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "studios",
+  "info": {
+    "name": "studio",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "animes": {
+      "via": "studios",
+      "private": true,
+      "collection": "animes"
+    }
+  }
+}

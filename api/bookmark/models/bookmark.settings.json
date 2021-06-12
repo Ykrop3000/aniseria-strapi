@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookmarks",
+  "info": {
+    "name": "Bookmark",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "planned",
+        "watching",
+        "rewatching",
+        "completed",
+        "on_hold",
+        "dropped"
+      ]
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "anime": {
+      "model": "animes"
+    }
+  }
+}

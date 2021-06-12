@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "genres",
+  "info": {
+    "name": "genre",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "russian": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "animes": {
+      "private": true,
+      "via": "genres",
+      "collection": "animes"
+    },
+    "kind": {
+      "type": "enumeration",
+      "enum": [
+        "anime",
+        "manga"
+      ]
+    }
+  }
+}

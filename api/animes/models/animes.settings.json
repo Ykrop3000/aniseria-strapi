@@ -1,0 +1,107 @@
+{
+  "kind": "collectionType",
+  "collectionName": "animes",
+  "info": {
+    "name": "animes",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "russian": {
+      "type": "string"
+    },
+    "english": {
+      "type": "string"
+    },
+    "japanese": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "aired_on": {
+      "type": "date"
+    },
+    "released_on": {
+      "type": "date"
+    },
+    "rating": {
+      "type": "string"
+    },
+    "next_episode_at": {
+      "type": "date"
+    },
+    "kind": {
+      "type": "enumeration",
+      "enum": [
+        "tv",
+        "movie",
+        "ova",
+        "ona",
+        "special",
+        "music",
+        "tv_13",
+        "tv_24",
+        "tv_48"
+      ],
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "anons",
+        "ongoing",
+        "released"
+      ],
+      "required": true
+    },
+    "url": {
+      "type": "uid",
+      "targetField": "name",
+      "required": false
+    },
+    "genres": {
+      "via": "animes",
+      "collection": "genre",
+      "dominant": true
+    },
+    "studios": {
+      "via": "animes",
+      "collection": "studio",
+      "dominant": true
+    },
+    "comments": {
+      "private": true,
+      "via": "anime",
+      "collection": "comment"
+    },
+    "rates": {
+      "via": "anime",
+      "collection": "rate"
+    },
+    "lists": {
+      "via": "animes",
+      "collection": "list"
+    }
+  }
+}
