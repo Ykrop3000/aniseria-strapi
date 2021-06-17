@@ -12,6 +12,34 @@ module.exports = {
   /**
    * Create a record.
    *
+   * @return {Boolean}
+   */
+  async remove(ctx) {
+    const { anime } = ctx.request.body;
+
+    let entity;
+
+    if (ctx.state.user.role.type !== "admin") {
+      const [bookmark] = await strapi.services.bookmark.find({
+        anime: anime,
+        user: ctx.state.user.id
+      });
+      if (!bookmark) {
+        return false;
+      }
+    }
+
+    entity = await strapi.services.bookmark.delete({
+      anime: anime,
+      user: ctx.state.user.id
+    });
+
+    return true;
+  },
+
+  /**
+   * Create a record.
+   *
    * @return {Object}
    */
 
@@ -29,7 +57,7 @@ module.exports = {
 
     bookmarkCandidate = await strapi.services.bookmark.findOne({
       anime: anime,
-      user: ctx.state.user.id,
+      user: ctx.state.user.id
     });
 
     if (!bookmarkCandidate) {
@@ -37,7 +65,7 @@ module.exports = {
       entity = await strapi.services.bookmark.create({
         anime: anime,
         user: ctx.state.user.id,
-        type: type,
+        type: type
       });
     } else {
       console.log("update");
@@ -46,7 +74,7 @@ module.exports = {
         {
           anime: anime,
           user: ctx.state.user.id,
-          type: type,
+          type: type
         }
       );
     }
@@ -72,7 +100,7 @@ module.exports = {
 
     bookmarkCandidate = await strapi.services.bookmark.findOne({
       anime: _anime,
-      user: ctx.state.user.id,
+      user: ctx.state.user.id
     });
 
     if (bookmarkCandidate) {
@@ -80,5 +108,5 @@ module.exports = {
     } else {
       return undefined;
     }
-  },
+  }
 };

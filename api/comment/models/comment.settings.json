@@ -21,13 +21,17 @@
       "plugin": "users-permissions",
       "model": "user"
     },
-    "anime": {
-      "via": "comments",
-      "model": "animes"
+    "likes": {
+      "type": "integer"
     },
-    "rates": {
-      "via": "comment",
-      "collection": "rate"
+    "dislikes": {
+      "type": "integer"
+    },
+    "isliked": {
+      "type": "decimal"
+    },
+    "anime": {
+      "model": "animes"
     }
   }
 }

@@ -20,12 +20,20 @@ module.exports = {
 
     entities = await strapi.services.animes.find(ctx.query);
 
-    if (ctx.query.url) {
-      return entities.map((entity) =>
-        sanitizeEntity(entity, { model: strapi.models.animes })
-      );
-    }
+    return entities.map(async entity => {
+      // if (ctx.state.user) {
+      //   const bookmark = await strapi.services.bookmark.findOne({
+      //     user: ctx.state.user.id,
+      //     anime: entity.id
+      //   });
 
-    return entities.map((entity) => sanitizer(entity, "animes"));
-  },
+      //   return sanitizeEntity(
+      //     { ...entity, bookmark: bookmark ? bookmark.type : null },
+      //     { model: strapi.models.animes }
+      //   );
+      // }
+
+      return sanitizeEntity(entity, { model: strapi.models.animes });
+    });
+  }
 };

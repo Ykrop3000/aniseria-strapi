@@ -36,7 +36,7 @@
         "images"
       ],
       "plugin": "upload",
-      "required": true,
+      "required": false,
       "pluginOptions": {}
     },
     "aired_on": {
@@ -64,7 +64,7 @@
         "tv_24",
         "tv_48"
       ],
-      "required": true
+      "required": false
     },
     "status": {
       "type": "enumeration",
@@ -73,35 +73,37 @@
         "ongoing",
         "released"
       ],
-      "required": true
-    },
-    "url": {
-      "type": "uid",
-      "targetField": "name",
       "required": false
     },
+    "kp_id": {
+      "type": "string"
+    },
+    "imdb_id": {
+      "type": "string"
+    },
+    "worldart_id": {
+      "type": "string"
+    },
+    "score": {
+      "type": "decimal",
+      "default": 0
+    },
+    "url": {
+      "type": "string",
+      "required": false,
+      "unique": false
+    },
+    "bookmark": {
+      "type": "string"
+    },
     "genres": {
-      "via": "animes",
-      "collection": "genre",
-      "dominant": true
+      "collection": "genre"
     },
     "studios": {
-      "via": "animes",
-      "collection": "studio",
-      "dominant": true
+      "collection": "studio"
     },
-    "comments": {
-      "private": true,
-      "via": "anime",
-      "collection": "comment"
-    },
-    "rates": {
-      "via": "anime",
-      "collection": "rate"
-    },
-    "lists": {
-      "via": "animes",
-      "collection": "list"
+    "shiki_id": {
+      "type": "string"
     }
   }
 }

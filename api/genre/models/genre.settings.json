@@ -22,11 +22,6 @@
       "required": true,
       "unique": false
     },
-    "animes": {
-      "private": true,
-      "via": "genres",
-      "collection": "animes"
-    },
     "kind": {
       "type": "enumeration",
       "enum": [

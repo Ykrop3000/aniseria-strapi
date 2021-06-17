@@ -517,10 +517,7 @@
       "Animes": {
         "required": [
           "id",
-          "name",
-          "image",
-          "kind",
-          "status"
+          "name"
         ],
         "properties": {
           "id": {
@@ -645,8 +642,24 @@
               "released"
             ]
           },
+          "kp_id": {
+            "type": "string"
+          },
+          "imdb_id": {
+            "type": "string"
+          },
+          "worldart_id": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number",
+            "default": 0
+          },
           "url": {
-            "type": "uid"
+            "type": "string"
+          },
+          "bookmark": {
+            "type": "string"
           },
           "genres": {
             "type": "array",
@@ -665,12 +678,6 @@
                 },
                 "russian": {
                   "type": "string"
-                },
-                "animes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
                 },
                 "kind": {
                   "type": "string",
@@ -705,12 +712,6 @@
                 "image": {
                   "type": "string"
                 },
-                "animes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "created_by": {
                   "type": "string"
                 },
@@ -720,83 +721,14 @@
               }
             }
           },
-          "rates": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "value"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "value": {
-                  "type": "number"
-                },
-                "author": {
-                  "type": "string"
-                },
-                "comment": {
-                  "type": "string"
-                },
-                "anime": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "lists": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "animes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "user": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
+          "shiki_id": {
+            "type": "string"
           }
         }
       },
       "NewAnimes": {
         "required": [
-          "name",
-          "kind",
-          "status"
+          "name"
         ],
         "properties": {
           "name": {
@@ -851,8 +783,24 @@
               "released"
             ]
           },
+          "kp_id": {
+            "type": "string"
+          },
+          "imdb_id": {
+            "type": "string"
+          },
+          "worldart_id": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number",
+            "default": 0
+          },
           "url": {
-            "type": "uid"
+            "type": "string"
+          },
+          "bookmark": {
+            "type": "string"
           },
           "genres": {
             "type": "array",
@@ -866,23 +814,8 @@
               "type": "string"
             }
           },
-          "comments": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "rates": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "lists": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "shiki_id": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

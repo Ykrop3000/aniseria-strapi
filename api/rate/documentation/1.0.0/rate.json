@@ -569,44 +569,6 @@
               "avatar": {
                 "type": "string"
               },
-              "lists": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "comment": {
-            "required": [
-              "id",
-              "body"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "body": {
-                "type": "string"
-              },
-              "author": {
-                "type": "string"
-              },
-              "anime": {
-                "type": "string"
-              },
-              "rates": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "created_by": {
                 "type": "string"
               },
@@ -618,10 +580,7 @@
           "anime": {
             "required": [
               "id",
-              "name",
-              "image",
-              "kind",
-              "status"
+              "name"
             ],
             "properties": {
               "id": {
@@ -679,8 +638,23 @@
                   "released"
                 ]
               },
+              "kp_id": {
+                "type": "string"
+              },
+              "imdb_id": {
+                "type": "string"
+              },
+              "worldart_id": {
+                "type": "string"
+              },
+              "score": {
+                "type": "number"
+              },
               "url": {
-                "type": "uid"
+                "type": "string"
+              },
+              "bookmark": {
+                "type": "string"
               },
               "genres": {
                 "type": "array",
@@ -694,23 +668,8 @@
                   "type": "string"
                 }
               },
-              "comments": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "rates": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "lists": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+              "shiki_id": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -720,9 +679,40 @@
               }
             }
           },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
+          "comment": {
+            "required": [
+              "id",
+              "body"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              },
+              "author": {
+                "type": "string"
+              },
+              "likes": {
+                "type": "integer"
+              },
+              "dislikes": {
+                "type": "integer"
+              },
+              "isliked": {
+                "type": "number"
+              },
+              "anime": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -737,15 +727,11 @@
           "author": {
             "type": "string"
           },
-          "comment": {
-            "type": "string"
-          },
           "anime": {
             "type": "string"
           },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
+          "comment": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

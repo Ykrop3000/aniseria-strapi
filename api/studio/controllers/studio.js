@@ -3,21 +3,33 @@
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
- */ const fs = require("fs").promises;
+ */
+const fs = require("fs").promises;
 const axios = require("axios");
+const fetch = require("node-fetch");
+
 module.exports = {
   async createImage(ctx) {
     const imgPath = ctx.query.img;
 
-    const response = await axios.get(imgPath, {
-      responseType: "blob",
-    });
+    // const response = await axios.get(imgPath, {
+    //   responseType: "blob",
+    // });
+
+    const r = await fetch(imgPath);
+    const myBlob = await r.blob();
 
     const uploadedFiles = await strapi.plugins.upload.services.upload.upload({
-      files: response.data,
+      files: myBlob,
+      data: {
+        fileInfo: {
+          type: "image/png",
+          name: "test"
+        }
+      }
     });
     return uploadedFiles;
-  },
+  }
   //   async create(ctx) {
   //     const { id } = ctx.params;
   //     let entity;

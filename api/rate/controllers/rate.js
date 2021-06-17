@@ -12,11 +12,45 @@ module.exports = {
   /**
    * Create a record.
    *
+   * @return {Boolean}
+   */
+  async remove(ctx) {
+    if (ctx.request.body.anime) {
+      await strapi.services.rate.delete({
+        anime: ctx.request.body.anime,
+        author: ctx.state.user.id
+      });
+    }
+    if (ctx.request.body.comment) {
+      await strapi.services.rate.delete({
+        comment: ctx.request.body.comment,
+        author: ctx.state.user.id
+      });
+    }
+
+    return true;
+  },
+  /**
+   * Create a record.
+   *
    * @return {Object}
    */
 
   async create(ctx) {
     let entity;
+    if (ctx.request.body.anime) {
+      await strapi.services.rate.delete({
+        anime: ctx.request.body.anime,
+        author: ctx.state.user.id
+      });
+    }
+    if (ctx.request.body.comment) {
+      await strapi.services.rate.delete({
+        comment: ctx.request.body.comment,
+        author: ctx.state.user.id
+      });
+    }
+
     if (ctx.is("multipart")) {
       const { data, files } = parseMultipartData(ctx);
       data.author = ctx.state.user.id;
@@ -42,7 +76,7 @@ module.exports = {
     if (ctx.state.user.role.type !== "admin") {
       const [rate] = await strapi.services.rate.find({
         id: ctx.params.id,
-        "author.id": ctx.state.user.id,
+        "author.id": ctx.state.user.id
       });
       if (!rate) {
         return ctx.unauthorized(`You can't update this entry`);
@@ -64,7 +98,7 @@ module.exports = {
     let entities;
     entities = await strapi.query("rate").find(ctx.query);
 
-    return entities.map((entity) =>
+    return entities.map(entity =>
       sanitizeEntity(entity, { model: strapi.models.rate })
     );
   },
@@ -95,7 +129,7 @@ module.exports = {
     if (ctx.state.user.role.type !== "admin") {
       const [rate] = await strapi.services.rate.find({
         id: ctx.params.id,
-        "author.id": ctx.state.user.id,
+        "author.id": ctx.state.user.id
       });
       if (!rate) {
         return ctx.unauthorized(`You can't update this entry`);
@@ -105,12 +139,12 @@ module.exports = {
     if (ctx.is("multipart")) {
       const { data, files } = parseMultipartData(ctx);
       entity = await strapi.services.rate.update({ id }, data, {
-        files,
+        files
       });
     } else {
       entity = await strapi.services.rate.update({ id }, ctx.request.body);
     }
 
     return sanitizeEntity(entity, { model: strapi.models.rate });
-  },
+  }
 };

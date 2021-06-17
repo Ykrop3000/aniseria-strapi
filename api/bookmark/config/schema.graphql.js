@@ -1,7 +1,12 @@
 module.exports = {
-  mutation: `
+  mutation: [
+    `
       addBookmark(anime: ID!, type: ENUM_BOOKMARK_TYPE!): Bookmark
     `,
+    `
+      removeBookmark(anime: ID!): Boolean
+    `
+  ],
   query: `
       inBookmark(anime: ID!): String
     `,
@@ -10,14 +15,18 @@ module.exports = {
     Query: {
       inBookmark: {
         // policies: ["plugins::users-permissions.isAuthenticated"],
-        resolver: "bookmark.inBookmark",
-      },
+        resolver: "bookmark.inBookmark"
+      }
     },
     Mutation: {
       addBookmark: {
         // policies: ["plugins::users-permissions.isAuthenticated"],
-        resolver: "bookmark.addBookmark",
+        resolver: "bookmark.addBookmark"
       },
-    },
-  },
+      removeBookmark: {
+        // policies: ["plugins::users-permissions.isAuthenticated"],
+        resolver: "bookmark.remove"
+      }
+    }
+  }
 };

@@ -71,10 +71,6 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
-    },
-    "lists": {
-      "via": "user",
-      "collection": "list"
     }
   }
 }

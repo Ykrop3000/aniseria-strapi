@@ -26,11 +26,6 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
-    },
-    "animes": {
-      "via": "studios",
-      "private": true,
-      "collection": "animes"
     }
   }
 }

@@ -1,5 +1,6 @@
 const sanitizer = require("strapi-sanitizer");
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
+const { query } = require("../../../../../AniSeria/server/db");
 
 ("use strict");
 
@@ -42,7 +43,7 @@ module.exports = {
     if (ctx.state.user.role.type !== "admin") {
       const [comment] = await strapi.services.comment.find({
         id: ctx.params.id,
-        "author.id": ctx.state.user.id,
+        "author.id": ctx.state.user.id
       });
       if (!comment) {
         return ctx.unauthorized(`You can't update this entry`);
@@ -62,11 +63,45 @@ module.exports = {
 
   async find(ctx) {
     let entities;
-    entities = await strapi.query("comment").find(ctx.query);
+    const knex = strapi.connections.default;
+    if (ctx.state.user) {
+      entities = await knex("comments")
+        .where("anime", ctx.query["anime.id"])
+        .select("*")
+        .select(
+          knex.raw(
+            '(select count(*) from "rates" where "comments"."id" = "comment" and "value"=1.00) as likes'
+          )
+        )
+        .select(
+          knex.raw(
+            '(select count(*) from "rates" where "comments"."id" = "comment" and "value"=0.00) as dislikes'
+          )
+        )
+        .select(
+          knex.raw(
+            `(select "value" from "rates" where "comments"."id" = "comment" and "author"=${ctx.state.user.id}) as isliked`
+          )
+        );
+    } else {
+      entities = await knex("comments")
+        .where("anime", ctx.query["anime.id"])
+        .select("*")
+        .select(
+          knex.raw(
+            '(select count(*) from "rates" where "comments"."id" = "comment" and "value"=1.00) as likes'
+          )
+        )
+        .select(
+          knex.raw(
+            '(select count(*) from "rates" where "comments"."id" = "comment" and "value"=0.00) as dislikes'
+          )
+        );
+    }
 
-    return entities.map((entity) =>
-      sanitizeEntity(entity, { model: strapi.models.comment })
-    );
+    return entities.map(async entity => {
+      return sanitizeEntity(entity, { model: strapi.models.comment });
+    });
   },
 
   /**
@@ -95,7 +130,7 @@ module.exports = {
     if (ctx.state.user.role.type !== "admin") {
       const [comment] = await strapi.services.comment.find({
         id: ctx.params.id,
-        "author.id": ctx.state.user.id,
+        "author.id": ctx.state.user.id
       });
       if (!comment) {
         return ctx.unauthorized(`You can't update this entry`);
@@ -105,12 +140,12 @@ module.exports = {
     if (ctx.is("multipart")) {
       const { data, files } = parseMultipartData(ctx);
       entity = await strapi.services.comment.update({ id }, data, {
-        files,
+        files
       });
     } else {
       entity = await strapi.services.comment.update({ id }, ctx.request.body);
     }
 
     return sanitizeEntity(entity, { model: strapi.models.comment });
-  },
+  }
 };

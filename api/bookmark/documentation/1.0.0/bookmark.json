@@ -576,12 +576,6 @@
               "avatar": {
                 "type": "string"
               },
-              "lists": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "created_by": {
                 "type": "string"
               },
@@ -593,10 +587,7 @@
           "anime": {
             "required": [
               "id",
-              "name",
-              "image",
-              "kind",
-              "status"
+              "name"
             ],
             "properties": {
               "id": {
@@ -654,8 +645,23 @@
                   "released"
                 ]
               },
+              "kp_id": {
+                "type": "string"
+              },
+              "imdb_id": {
+                "type": "string"
+              },
+              "worldart_id": {
+                "type": "string"
+              },
+              "score": {
+                "type": "number"
+              },
               "url": {
-                "type": "uid"
+                "type": "string"
+              },
+              "bookmark": {
+                "type": "string"
               },
               "genres": {
                 "type": "array",
@@ -669,23 +675,8 @@
                   "type": "string"
                 }
               },
-              "comments": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "rates": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "lists": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+              "shiki_id": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"

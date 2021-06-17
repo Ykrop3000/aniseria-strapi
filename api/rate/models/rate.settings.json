@@ -8,7 +8,7 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -22,13 +22,11 @@
       "plugin": "users-permissions",
       "model": "user"
     },
-    "comment": {
-      "model": "comment",
-      "via": "rates"
-    },
     "anime": {
-      "model": "animes",
-      "via": "rates"
+      "model": "animes"
+    },
+    "comment": {
+      "model": "comment"
     }
   }
 }
