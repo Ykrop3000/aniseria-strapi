@@ -104,6 +104,9 @@
     },
     "shiki_id": {
       "type": "string"
+    },
+    "player_link": {
+      "type": "string"
     }
   }
 }

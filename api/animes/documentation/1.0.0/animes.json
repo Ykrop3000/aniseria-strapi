@@ -723,6 +723,9 @@
           },
           "shiki_id": {
             "type": "string"
+          },
+          "player_link": {
+            "type": "string"
           }
         }
       },
@@ -815,6 +818,9 @@
             }
           },
           "shiki_id": {
+            "type": "string"
+          },
+          "player_link": {
             "type": "string"
           },
           "created_by": {
