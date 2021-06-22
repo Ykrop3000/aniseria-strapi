@@ -726,6 +726,13 @@
           },
           "player_link": {
             "type": "string"
+          },
+          "votes": {
+            "type": "integer"
+          },
+          "episodes_count": {
+            "type": "integer",
+            "default": 0
           }
         }
       },
@@ -822,6 +829,13 @@
           },
           "player_link": {
             "type": "string"
+          },
+          "votes": {
+            "type": "integer"
+          },
+          "episodes_count": {
+            "type": "integer",
+            "default": 0
           },
           "created_by": {
             "type": "string"

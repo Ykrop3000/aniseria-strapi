@@ -28,13 +28,9 @@ module.exports = ({ env }) => ({
         username: env("DATABASE_USERNAME", "postgres"),
         password: env("DATABASE_PASSWORD", "root"),
         schema: env("DATABASE_SCHEMA", "public"), // Not Required
-        ssl: {
-          rejectUnauthorized: false
-        }
-      },
-      options: {
         ssl: false
-      }
+      },
+      options: {}
     }
   }
 });

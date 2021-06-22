@@ -15,19 +15,24 @@
     "name": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": true,
+      "pluginOptions": {}
     },
     "russian": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {}
     },
     "english": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {}
     },
     "japanese": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {}
     },
     "description": {
-      "type": "richtext"
+      "type": "richtext",
+      "pluginOptions": {}
     },
     "image": {
       "model": "file",
@@ -40,16 +45,20 @@
       "pluginOptions": {}
     },
     "aired_on": {
-      "type": "date"
+      "type": "date",
+      "pluginOptions": {}
     },
     "released_on": {
-      "type": "date"
+      "type": "date",
+      "pluginOptions": {}
     },
     "rating": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {}
     },
     "next_episode_at": {
-      "type": "date"
+      "type": "date",
+      "pluginOptions": {}
     },
     "kind": {
       "type": "enumeration",
@@ -64,7 +73,8 @@
         "tv_24",
         "tv_48"
       ],
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     },
     "status": {
       "type": "enumeration",
@@ -73,28 +83,35 @@
         "ongoing",
         "released"
       ],
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     },
     "kp_id": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {}
     },
     "imdb_id": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {}
     },
     "worldart_id": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {}
     },
     "score": {
       "type": "decimal",
-      "default": 0
+      "default": 0,
+      "pluginOptions": {}
     },
     "url": {
       "type": "string",
       "required": false,
-      "unique": false
+      "unique": false,
+      "pluginOptions": {}
     },
     "bookmark": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {}
     },
     "genres": {
       "collection": "genre"
@@ -103,10 +120,21 @@
       "collection": "studio"
     },
     "shiki_id": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {}
     },
     "player_link": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {}
+    },
+    "votes": {
+      "type": "integer",
+      "pluginOptions": {}
+    },
+    "episodes_count": {
+      "type": "integer",
+      "default": 0,
+      "pluginOptions": {}
     }
   }
 }
