@@ -1,6 +1,5 @@
 const sanitizer = require("strapi-sanitizer");
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
-const { query } = require("../../../../../AniSeria/server/db");
 
 ("use strict");
 
