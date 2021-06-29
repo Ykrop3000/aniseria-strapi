@@ -687,6 +687,12 @@
               "episodes_count": {
                 "type": "integer"
               },
+              "screenshots": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },

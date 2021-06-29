@@ -15,26 +15,6 @@
 // // });
 // const parse = require("pg-connection-string").parse;
 
-// module.exports = ({ env }) => ({
-//   defaultConnection: "default",
-//   connections: {
-//     default: {
-//       connector: "bookshelf",
-//       settings: {
-//         client: "postgres",
-//         host: env("DATABASE_HOST", "localhost"),
-//         port: env.int("DATABASE_PORT", 5432),
-//         database: env("DATABASE_NAME", "postgres"),
-//         username: env("DATABASE_USERNAME", "postgres"),
-//         password: env("DATABASE_PASSWORD", "root"),
-//         schema: env("DATABASE_SCHEMA", "public"), // Not Required
-//         ssl: false
-//       },
-//       options: {}
-//     }
-//   }
-// });
-
 module.exports = ({ env }) => ({
   defaultConnection: "default",
   connections: {
@@ -42,12 +22,52 @@ module.exports = ({ env }) => ({
       connector: "bookshelf",
       settings: {
         client: "postgres",
-        host: `/cloudsql/${env("INSTANCE_CONNECTION_NAME")}`,
-        database: env("DATABASE_NAME"),
-        username: env("DATABASE_USERNAME"),
-        password: env("DATABASE_PASSWORD")
+        host: env("DATABASE_HOST", "localhost"),
+        port: env.int("DATABASE_PORT", 5432),
+        database: env("DATABASE_NAME", "postgres"),
+        username: env("DATABASE_USERNAME", "postgres"),
+        password: env("DATABASE_PASSWORD", "root"),
+        schema: env("DATABASE_SCHEMA", "public"), // Not Required
+        ssl: false
       },
       options: {}
     }
   }
 });
+
+// module.exports = ({ env }) => ({
+//   defaultConnection: "default",
+//   connections: {
+//     default: {
+//       connector: "bookshelf",
+//       settings: {
+//         client: "postgres",
+//         host: env("DATABASE_HOST", "34.88.234.50"),
+//         port: env.int("DATABASE_PORT", 5432),
+//         database: env("DATABASE_NAME", "postgres"),
+//         username: env("DATABASE_USERNAME", "postgres"),
+//         password: env("DATABASE_PASSWORD", "rJl6yGvnMJpggBws"),
+//       },
+//       options: {}
+//     }
+//   }
+// });
+// module.exports = ({ env }) => ({
+//   defaultConnection: "default",
+//   connections: {
+//     default: {
+//       connector: "bookshelf",
+//       settings: {
+//         client: "postgres",
+//         host: `/cloudsql/${env(
+//           "INSTANCE_CONNECTION_NAME",
+//           "modern-binder-317614:europe-north1:aniseria-strapi"
+//         )}`,
+//         database: env("DATABASE_NAME", "strapi"),
+//         username: env("DATABASE_USERNAME", "postgres"),
+//         password: env("DATABASE_PASSWORD", "rJl6yGvnMJpggBws")
+//       },
+//       options: {}
+//     }
+//   }
+// });

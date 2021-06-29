@@ -135,6 +135,16 @@
       "type": "integer",
       "default": 0,
       "pluginOptions": {}
+    },
+    "screenshots": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

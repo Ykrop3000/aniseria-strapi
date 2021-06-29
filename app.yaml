@@ -1,14 +1,13 @@
-runtime: nodejs
+runtime: nodejs14
 
-env: flex
+instance_class: F2
 
 env_variables:
   HOST: "0.0.0.0"
   NODE_ENV: "production"
-  DATABASE_NAME: "strapi"
-  DATABASE_USERNAME: "server"
+  DATABASE_NAME: "postgres"
+  DATABASE_USERNAME: "postgres"
   DATABASE_PASSWORD: "rJl6yGvnMJpggBws"
-  INSTANCE_CONNECTION_NAME: "modern-binder-317614:europe-north1:aniseria-strapi"
-
+  INSTANCE_CONNECTION_NAME: "modern-binder-317614:europe-west1:server"
 beta_settings:
-  cloud_sql_instances: "modern-binder-317614:europe-north1:aniseria-strapi"
+  cloud_sql_instances: "modern-binder-317614:europe-west1:server"
