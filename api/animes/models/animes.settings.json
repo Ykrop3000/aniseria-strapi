@@ -37,9 +37,7 @@
     "image": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
+      "allowedTypes": ["images"],
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
@@ -78,11 +76,7 @@
     },
     "status": {
       "type": "enumeration",
-      "enum": [
-        "anons",
-        "ongoing",
-        "released"
-      ],
+      "enum": ["anons", "ongoing", "released"],
       "required": false,
       "pluginOptions": {}
     },
@@ -104,10 +98,7 @@
       "pluginOptions": {}
     },
     "url": {
-      "type": "string",
-      "required": false,
-      "unique": false,
-      "pluginOptions": {}
+      "type": "uid"
     },
     "bookmark": {
       "type": "string",
@@ -139,9 +130,7 @@
     "screenshots": {
       "collection": "file",
       "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
+      "allowedTypes": ["images"],
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}

@@ -656,7 +656,7 @@
             "default": 0
           },
           "url": {
-            "type": "string"
+            "type": "uid"
           },
           "bookmark": {
             "type": "string"
@@ -877,7 +877,7 @@
             "default": 0
           },
           "url": {
-            "type": "string"
+            "type": "uid"
           },
           "bookmark": {
             "type": "string"

@@ -651,7 +651,7 @@
                 "type": "number"
               },
               "url": {
-                "type": "string"
+                "type": "uid"
               },
               "bookmark": {
                 "type": "string"

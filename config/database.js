@@ -52,6 +52,7 @@ module.exports = ({ env }) => ({
 //     }
 //   }
 // });
+
 // module.exports = ({ env }) => ({
 //   defaultConnection: "default",
 //   connections: {
@@ -59,13 +60,10 @@ module.exports = ({ env }) => ({
 //       connector: "bookshelf",
 //       settings: {
 //         client: "postgres",
-//         host: `/cloudsql/${env(
-//           "INSTANCE_CONNECTION_NAME",
-//           "modern-binder-317614:europe-north1:aniseria-strapi"
-//         )}`,
-//         database: env("DATABASE_NAME", "strapi"),
-//         username: env("DATABASE_USERNAME", "postgres"),
-//         password: env("DATABASE_PASSWORD", "rJl6yGvnMJpggBws")
+//         host: `34.77.136.70`,
+//         database: "postgres",
+//         username: "postgres",
+//         password: "rJl6yGvnMJpggBws"
 //       },
 //       options: {}
 //     }
