@@ -693,6 +693,12 @@
                   "type": "string"
                 }
               },
+              "views": {
+                "type": "integer"
+              },
+              "popularity": {
+                "type": "number"
+              },
               "created_by": {
                 "type": "string"
               },

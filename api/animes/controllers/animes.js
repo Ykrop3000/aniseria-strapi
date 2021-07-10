@@ -34,6 +34,30 @@ module.exports = {
   //     return sanitizeEntity(entity, { model: strapi.models.animes });
   //   });
   // },
+  /**
+   * Retrieve a record.
+   *
+   * @return {Object}
+   */
+
+  async find(ctx) {
+    const query = ctx.query;
+
+    const entities = await strapi.services.animes.find(query);
+
+    if (query._or?.[0].url) {
+      entity = strapi.services.animes.update(
+        { url: query._or?.[0].url },
+        {
+          views: entities?.[0].views + 1
+        }
+      );
+    }
+
+    return entities.map(entity =>
+      sanitizeEntity(entity, { model: strapi.models.animes })
+    );
+  },
 
   async create(ctx) {
     const entity = await strapi.services.animes.findOne({

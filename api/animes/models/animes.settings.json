@@ -37,7 +37,9 @@
     "image": {
       "model": "file",
       "via": "related",
-      "allowedTypes": ["images"],
+      "allowedTypes": [
+        "images"
+      ],
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
@@ -76,7 +78,11 @@
     },
     "status": {
       "type": "enumeration",
-      "enum": ["anons", "ongoing", "released"],
+      "enum": [
+        "anons",
+        "ongoing",
+        "released"
+      ],
       "required": false,
       "pluginOptions": {}
     },
@@ -130,10 +136,19 @@
     "screenshots": {
       "collection": "file",
       "via": "related",
-      "allowedTypes": ["images"],
+      "allowedTypes": [
+        "images"
+      ],
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "views": {
+      "type": "integer",
+      "default": 0
+    },
+    "popularity": {
+      "type": "decimal"
     }
   }
 }

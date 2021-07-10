@@ -803,6 +803,13 @@
                 }
               }
             }
+          },
+          "views": {
+            "type": "integer",
+            "default": 0
+          },
+          "popularity": {
+            "type": "number"
           }
         }
       },
@@ -906,6 +913,13 @@
           "episodes_count": {
             "type": "integer",
             "default": 0
+          },
+          "views": {
+            "type": "integer",
+            "default": 0
+          },
+          "popularity": {
+            "type": "number"
           },
           "created_by": {
             "type": "string"
