@@ -63,9 +63,10 @@ module.exports = ({ env }) => ({
         host: `34.77.136.70`,
         database: "postgres",
         username: "postgres",
-        password: "rJl6yGvnMJpggBws"
-      },
-      options: {}
+        password: "rJl6yGvnMJpggBws",
+        schema: "public",
+        ssl: { rejectUnauthorized: false }
+      }
     }
   }
 });
