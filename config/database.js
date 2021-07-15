@@ -60,13 +60,14 @@ module.exports = ({ env }) => ({
       connector: "bookshelf",
       settings: {
         client: "postgres",
-        host: `34.77.136.70`,
+        host: `34.78.210.108`,
         database: "postgres",
-        username: "postgres",
+        username: "server",
         password: "rJl6yGvnMJpggBws",
         schema: "public",
         ssl: { rejectUnauthorized: false }
-      }
+      },
+      options: {}
     }
   }
 });
